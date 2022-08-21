@@ -1,0 +1,41 @@
+# mutation {
+#   createUser(input: {
+#     username: "User with posts"
+#     age: 42
+#     posts: [{
+#       id: 1
+#       title: "FIrst Title"
+#       content: "Just\nContent"
+#     },
+#       {
+#       id: 2
+#       title: "Second Title"
+#       content: "Just\nContent"
+#     }
+#     ]
+#   }) {
+#     id, username, posts {
+#       id, title
+#     }
+#   }
+# }
+
+query {
+  getAllUsers {
+    id
+    username
+    age
+    posts {
+      id
+      title
+      content
+    }
+  }
+}
+
+# {
+#   getUser(id: "1660915808547") {
+#     username
+#     age
+#   }
+# }
