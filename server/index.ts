@@ -2,6 +2,7 @@ import express from 'express'
 import { graphqlHTTP } from 'express-graphql'
 import cors from 'cors'
 import { schema } from './schema'
+import { context } from './context'
 
 interface User {
   id: string
@@ -60,9 +61,9 @@ app.use('/status', (req, res) => {
 app.use(
   '/graphql',
   graphqlHTTP({
+    schema: schema,
+    context: context,
     graphiql: true,
-    schema,
-    rootValue: root,
   })
 )
 
